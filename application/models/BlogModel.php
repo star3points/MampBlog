@@ -2,6 +2,8 @@
 
 namespace application\models;
 
+use PDO;
+
 class BlogModel {
 
     private $controller;
@@ -30,8 +32,15 @@ class BlogModel {
 
     public function addCommentAction(){
         $article = explode('/', $_SERVER['HTTP_REFERER'])[5];
-        print_r($article);
-        echo 'new commit';
+        if (isset($_POST['comment']) and isset($_SESSION['login'])){
+            $query = 'INSERT INTO `comments` (article_name, user_login, comment) VALUES(?, ?, ?)';
+            $dbConfig = require 'application/config/db.php';
+            $db = new PDO('mysql:host='.$dbConfig['host'].';dbname='.$dbConfig['dbname'].'', $dbConfig['user'], $dbConfig['password']);
+            $preparedPDO = $db -> prepare($query);
+            $commentArray = array($article, $_SESSION['login'], $_POST['comment']);
+            $preparedPDO -> execute($commentArray);
+            echo 'addComment';
 
+        }
     }
 }
