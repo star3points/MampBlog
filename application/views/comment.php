@@ -1,7 +1,9 @@
+</p>
 <form name="commentForm" action="/blog/addComment" method="post">
     <textarea type="text" name="comment"></textarea><br>
     <button type="submit">Comment</button>
 </form>
+</p>
 
 <?php
 

@@ -39,8 +39,7 @@ class BlogModel {
             $preparedPDO = $db -> prepare($query);
             $commentArray = array($article, $_SESSION['login'], $_POST['comment']);
             $preparedPDO -> execute($commentArray);
-            echo 'addComment';
-
+            header('location: /blog/index/'.$article);
         }
     }
 }
