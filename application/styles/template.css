@@ -1,53 +1,18 @@
-* {
-    /*text-decoration: none;*/
-    /*color: black;*/
-    /*font-family: Helvetica;*/
+
+.navbar-brand {
+    margin-left: 5%;
 }
 
-#headerBox {
-    display: flex;
+.navbar-text {
+    margin-left: 100px;
 }
 
-#headerBox {
-    background: rgb(70,70,70);
-    height: 40px;
-    margin: -8px;
-    padding: 8px;
+header {
+    padding-bottom: 5%;
 }
 
-.logRegLink {
-    text-decoration: none;
-    color: white;
-    font-size: 16px;
-    font-family: Helvetica;
+#content{
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
-#exitLink {
-    text-decoration: none;
-    color: white;
-}
-
-#headerMenu {
-    text-decoration: none;
-    color: white;
-    font-family: Helvetica;
-}
-
-.menuLink {
-    text-decoration: none;
-    color: white;
-    font-family: Helvetica;
-}
-
-.headerLogReg{
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-#headerMenu {
-    flex-grow: 10;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}

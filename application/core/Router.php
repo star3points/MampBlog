@@ -22,8 +22,8 @@ class Router {
             $actionName = $explodedCurrentPath[2].'Action';
         }
 
-//        echo $controllerName;
-//        echo $actionName;
+        //echo $controllerName;
+        //echo $actionName;
 
         $controllerName = "\application\controllers\\".$controllerName;
         $controller = new $controllerName;

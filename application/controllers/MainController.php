@@ -10,5 +10,6 @@ class MainController extends Controller {
 
     public function indexAction() {
         $this -> view -> render('application/views/template.php', 'application/views/main.php');
+
     }
 }

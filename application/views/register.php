@@ -1,13 +1,27 @@
 <h3>Register</h3>
 
-<form name = "registerForm" action="handleRegisterForm" method="POST" onSubmit="return validate();">
-    <label>Login<br> <input type = "text" name = "login" id = "loginID"></label>
-    <span id = "errLogin"></span><br>
-    <label>Password<br> <input type = "text" name = "password1" id = "password1ID"></label>
-    <span id = "errPass1"></span><br>
-    <label>Confirm password<br> <input type = "text" name = "password2" id = "password2ID"></label>
-    <span id = "errPass2"></span><br>
-    <button type = "submit">Register Button</button>
+<form name = "registerForm" action = "handleRegisterForm" method = "POST" onsubmit = "return validate()">
+
+    <div class = "form-group">
+        <label for = "loginInput">Login</label>
+        <input type = "text" class = "form-control" name = "login" id = "loginInput">
+        <span id = "errLogin"></span><br>
+    </div>
+
+    <div class = "form-group">
+        <label for = "password1Input">Password</label>
+        <input type = "password" class = "form-control" name = "password1" id = "password1Input">
+        <span id = "errPass1"></span><br>
+    </div>
+
+    <div class = "form-group">
+        <label for = "password2Input">Confirm password</label>
+        <input type = "password" class = "form-control" name = "password2" id = "password2Input">
+        <span id = "errPass2"></span><br>
+    </div>
+
+    <button type = "submit" class = "btn btn-primary">Register</button>
+
 </form>
 
 <script>
@@ -17,9 +31,9 @@
         document.getElementById("errPass1").innerText =" ";
         document.getElementById("errPass2").innerText =" ";
 
-        var inputLogin = document.getElementById("loginID");
-        var inputPassword1 = document.getElementById("password1ID");
-        var inputPassword2 = document.getElementById("password2ID");
+        var inputLogin = document.getElementById("loginInput");
+        var inputPassword1 = document.getElementById("password1Input");
+        var inputPassword2 = document.getElementById("password2Input");
 
         if (!inputLogin.value || !inputPassword1.value || !inputPassword2.value) {
             if (!inputLogin.value) {

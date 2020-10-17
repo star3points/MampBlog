@@ -26,14 +26,15 @@ class AccountModel {
         if ($this->loginFormIsSet()){
             $hashPassFromDB = $this -> getHashPassFromDB($_POST['login']);
             if (!empty($hashPassFromDB)){
-                if (password_verify($_POST['password'], $hashPassFromDB)){
+                if (password_verify($_POST['password1'], $hashPassFromDB)){
                     $_SESSION['login'] = $_POST['login'];
                     header('location: /');
-                } else {
+                } else {  
                     $this -> controller -> loginAction();
                     echo  "<script>document.getElementById('errPass').innerText = 'invalid password' ;</script>";
                 }
             } else {
+                
                 $this -> controller -> loginAction();
                 echo  "<script>document.getElementById('errLogin').innerText = 'this user not found' ;</script>";
             }
@@ -42,7 +43,7 @@ class AccountModel {
 
     private function loginFormIsSet() {
         if (isset($_POST['login']) and
-            isset($_POST['password'])) {
+            isset($_POST['password1'])) {
             return true;
         }
         return false;
@@ -57,7 +58,7 @@ class AccountModel {
 
     public function register() {
         if ($this -> registerFormIsSet() and
-            $this -> loginNotExist($_POST['login'])) { // validate : js в views/register.php
+            $this -> loginNotExist($_POST['login'])) { // validate : js in views/register.php
             $login = $_POST['login'];
             $password = $_POST['password1'];
             $this -> addUser($login, $password);

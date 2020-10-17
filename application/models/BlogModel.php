@@ -23,9 +23,9 @@ class BlogModel {
             echo '<br>';
             $articles = scandir("application/articles");
             for ($i = 2; $i < count($articles); $i += 1){
-                $path = "\blog\index\\$articles[$i]";
+                $path = "\Blog\index\\$articles[$i]";
                 $link = "<a href=\"$path\">$articles[$i]</a><br>";
-                echo $link;
+                echo "<div id = 'content'>".$link."</div>";
             }
         }
     }
@@ -39,7 +39,16 @@ class BlogModel {
             $preparedPDO = $db -> prepare($query);
             $commentArray = array($article, $_SESSION['login'], $_POST['comment']);
             $preparedPDO -> execute($commentArray);
-            header('location: /blog/index/'.$article);
+            header('location: /Blog/index/'.$article);
         }
+    }
+
+    public function deleteCommentAction() {
+        $article = explode('/', $_SERVER['HTTP_REFERER'])[5];
+        $commentID = $_POST['commentID'];
+        $dbConfig = require 'application/config/db.php';
+        $db = new PDO('mysql:host='.$dbConfig['host'].';dbname='.$dbConfig['dbname'].'', $dbConfig['user'], $dbConfig['password']);
+        $db -> exec('DELETE FROM `comments` WHERE `id` = '.$commentID);
+        header('location: /Blog/index/'.$article);
     }
 }

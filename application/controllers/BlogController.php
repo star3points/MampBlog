@@ -2,6 +2,7 @@
 
 namespace application\controllers;
 
+
 use application\models\BlogModel;
 
 class BlogController extends \application\core\Controller {
@@ -21,6 +22,8 @@ class BlogController extends \application\core\Controller {
         $this -> model -> addCommentAction();
     }
 
-
+    public function deleteCommentAction() {
+        $this -> model -> deleteCommentAction();
+    }
 
 }
