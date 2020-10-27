@@ -14,12 +14,12 @@ class AccountController extends \application\core\Controller {
     }
 
     public function loginAction() {
-        $this -> view -> render('application/views/template.php', 'application/views/login.php');
+        $this -> view -> render('application/views/template.php', 'application/views/loginForm.php');
 
     }
 
     public function registerAction() {
-        $this -> view -> render('application/views/template.php', 'application/views/register.php');
+        $this -> view -> render('application/views/template.php', 'application/views/registerForm.php');
     }
 
     public function exitAction(){

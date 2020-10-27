@@ -33,13 +33,10 @@
             <?php
             if (isset($_SESSION['login'])){
                 echo 
-                '
-                <ul class = "navbar-nav ml-auto">
+                '<ul class = "navbar-nav ml-auto">
                 <li class = "nav-item"><span class = "navbar-text mr-3" >'.$_SESSION['login'].'</span></li>
                 <li class = "nav-item"><a class = "btn btn-primary mr-2" href="/Account/exit">Logout</a></li>
-                </ul>'
-                
-                ;
+                </ul>';
             } else {
                  echo 
                 '<ul class = "navbar-nav ml-auto">
